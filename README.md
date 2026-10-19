@@ -9,10 +9,15 @@ One tap each. Then at 9:00 he makes the calls.</p>
 
 <p align="center">Open source, open weights · Runs on your machine · Your choice of model</p>
 
-<!-- Demo video: swap this link for the YouTube URL once it's uploaded. -->
-<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the demo</a></b> · <a href="slides.pdf">Slides</a> · <a href="PITCH.md">Pitch</a></p>
+<p align="center"><b>▶ <a href="https://www.youtube.com/watch?v=t3OLx-MCzSU">Watch the demo on YouTube</a></b> · <a href="slides.pdf">Slides</a> · <a href="PITCH.md">Pitch</a></p>
 
 ---
+
+## The problem and our solution
+
+**The problem.** Personal agents like Muse and Instinct are good at errands, but only when you remember to ask. What drains a day is the work nobody asks for: the deck you promised by Tuesday, the redlines you're still owed, a first meeting with zero prep, a dentist appointment that clashes with your investor update, a gym that only cancels by phone. It's scattered across your inbox and calendar, and the worst of it takes a phone call. Those assistants are also closed: their app, their model.
+
+**Our solution.** Bagel doesn't wait to be asked. He keeps a daily routine: overnight he reads your inbox and calendar and finds that work, at 7 AM he hands it to you already done (drafts with the file attached, a cited brief, a fix for the clash), and at 9 AM he makes the calls. You approve each item with one tap. Nothing is sent without you, and on the phone he always says he's an AI. He's open source, lives on your machine, and runs on open-weights models you choose, Qwen 3.8 today.
 
 ## The daily loop
 

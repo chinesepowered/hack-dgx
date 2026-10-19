@@ -4,7 +4,7 @@
 >
 > Open source, open weights · Runs on your machine · Your choice of model
 
-Slides: [`slides.html`](slides.html) (arrow keys, F for full screen) · [`slides.pdf`](slides.pdf) · Demo video: [`demo/bagel-demo.mp4`](demo/bagel-demo.mp4) (a little over two minutes)
+Slides: [`slides.html`](slides.html) (arrow keys, F for full screen) · [`slides.pdf`](slides.pdf) · Demo video: [YouTube](https://www.youtube.com/watch?v=t3OLx-MCzSU) (a little over two minutes)
 
 ---
 
