@@ -86,17 +86,6 @@ The phone app (React) talks to a small Express server over server-sent events. T
   ```
 - **ElevenLabs** voices Bagel on the phone (`server/caller/voice.ts`), mixed with a ringback tone and a phone-line filter.
 
-## Run it
-
-```bash
-npm install
-npm run dev            # app on http://localhost:5173
-```
-
-It starts in replay mode, which plays back a recorded run and needs no keys. To run the agents live, copy `.env.example` to `.env`, add the keys, and press **Live** in the side panel.
-
-Bagel uses Qwen 3.8, an open-weights model, on W&B Inference by default, but the model is your choice. Point `LLM_BASE_URL` and `LLM_MODEL` at any OpenAI-compatible endpoint whose model supports tool calls, and put its key in `LLM_API_KEY`. A model running locally with Ollama or vLLM works too; any non-empty key will do.
-
 ## Project layout
 
 ```
@@ -107,3 +96,38 @@ server/integrations/   Composio-shaped tools over sample data
 server/engine.ts       demo clock, approvals, call queue
 web/src/               the phone app: Bagel, the night trail, The Morning Bark, the call screen
 ```
+
+## Run it locally
+
+You need [Node.js](https://nodejs.org) 22.12 or newer.
+
+```bash
+git clone https://github.com/chinesepowered/hack-dgx.git
+cd hack-dgx
+npm install
+npm run dev            # app on http://localhost:5173, API on :8787
+```
+
+Open http://localhost:5173. The app starts in **replay mode**: it plays back a recorded night shift and both calls, so it needs no API keys. Tap **Tuck in 🌙** to start the night shift, then use the clock buttons in the side panel to jump to 7:00 AM and 9:00 AM.
+
+To build the app and serve it from a single process instead, run `npm start` and open http://localhost:8787.
+
+### Live mode
+
+Live mode runs the agents for real on your machine. It needs [ffmpeg](https://ffmpeg.org) on your `PATH` (it mixes the call audio) and three keys in `.env`:
+
+```bash
+cp .env.example .env
+```
+
+| Key | What it's for |
+| --- | --- |
+| `WANDB_API_KEY` | Qwen 3.8 on W&B Inference (or use `LLM_API_KEY` for another model, below) |
+| `PARALLEL_API_KEY` | researching your first meetings |
+| `ELEVENLABS_API_KEY` | voices on the calls |
+
+Restart `npm run dev`, then press **Live** in the side panel. If a key is missing, the panel lists it. Set `BAGEL_MODE=live` in `.env` to start in live mode.
+
+### Choose your model
+
+Bagel uses Qwen 3.8, an open-weights model, on W&B Inference by default, but the model is your choice. Point `LLM_BASE_URL` and `LLM_MODEL` at any OpenAI-compatible endpoint whose model supports tool calls, and put its key in `LLM_API_KEY`. A model running locally with Ollama or vLLM works too; any non-empty key will do.
