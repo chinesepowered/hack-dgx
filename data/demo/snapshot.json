@@ -1,0 +1,513 @@
+{
+  "version": 1,
+  "recordedAt": "2026-10-19T19:57:08.678Z",
+  "today": "2026-10-19",
+  "nightShift": {
+    "trail": [
+      {
+        "id": "step_mvfockno1",
+        "at": 1792486800002,
+        "kind": "start",
+        "text": "Clocked in for the night shift",
+        "detail": "Prepping Tue, Oct 20",
+        "status": "done"
+      },
+      {
+        "id": "step_mvfocnl92",
+        "at": 1792486803804,
+        "kind": "calendar",
+        "text": "Checked Tuesday: 5 events",
+        "status": "done",
+        "tool": "GOOGLECALENDAR_EVENTS_LIST",
+        "args": "{\"timeMin\":\"2026-10-20T00:00:00-07:00\",\"timeMax\":\"2026-10-21T00:00:00-07:00\"}"
+      },
+      {
+        "id": "step_mvfocnlb3",
+        "at": 1792486803805,
+        "kind": "sniff",
+        "text": "Sniffed 3 sent emails",
+        "status": "done",
+        "tool": "GMAIL_FETCH_EMAILS",
+        "args": "{\"query\":\"in:sent newer_than:14d\",\"max_results\":50}"
+      },
+      {
+        "id": "step_mvfocnlc4",
+        "at": 1792486803806,
+        "kind": "sniff",
+        "text": "Sniffed 9 emails in your inbox",
+        "status": "done",
+        "tool": "GMAIL_FETCH_EMAILS",
+        "args": "{\"query\":\"in:inbox newer_than:14d\",\"max_results\":50}"
+      },
+      {
+        "id": "step_mvfodwmc5",
+        "at": 1792486862163,
+        "kind": "research",
+        "text": "Found 6 things to know about Parallel Web Systems",
+        "detail": "5 sources via Parallel",
+        "status": "done",
+        "tool": "research_meeting",
+        "args": "{\"company\":\"Parallel Web Systems\"}"
+      },
+      {
+        "id": "step_mvfodwme7",
+        "at": 1792486862164,
+        "kind": "drive",
+        "text": "Dug up \u201cNorthwind \u2014 Q3 pilot metrics.pdf\u201d in Drive",
+        "status": "done",
+        "tool": "GOOGLEDRIVE_FIND_FILE",
+        "args": "{\"q\":\"Q3 pilot metrics\"}"
+      },
+      {
+        "id": "step_mvfodwme8",
+        "at": 1792486862164,
+        "kind": "conflict",
+        "text": "Uh-oh: a double-booking",
+        "detail": "2:00 PM: Monthly investor update with Larch Ventures overlaps your dentist cleaning at Bright Smile",
+        "status": "done",
+        "tool": "record_conflict",
+        "args": "{\"keep_event_id\":\"evt_investor\",\"move_event_id\":\"evt_dentist\"}"
+      },
+      {
+        "id": "step_mvfodwmea",
+        "at": 1792486862165,
+        "kind": "call",
+        "text": "Lined up a call to Bright Smile Dental",
+        "detail": "for 9:00 AM when they open",
+        "status": "done",
+        "tool": "propose_call",
+        "args": "{\"business\":\"Bright Smile Dental\",\"purpose\":\"reschedule\",\"opens_at\":\"09:00\"}"
+      },
+      {
+        "id": "step_mvfodwmfc",
+        "at": 1792486862166,
+        "kind": "call",
+        "text": "Lined up a call to FlexFit Mission",
+        "detail": "for 9:00 AM when they open",
+        "status": "done",
+        "tool": "propose_call",
+        "args": "{\"business\":\"FlexFit Mission\",\"purpose\":\"cancel\",\"opens_at\":\"09:00\"}"
+      },
+      {
+        "id": "step_mvfodwmge",
+        "at": 1792486862166,
+        "kind": "promise",
+        "text": "Found a promise to Priya",
+        "detail": "Book Italian dinner for Mom's 60th birthday (Saturday Oct 24) and confirm the place to Priya",
+        "status": "done",
+        "tool": "record_promise",
+        "args": "{\"direction\":\"you_owe\",\"person\":\"Priya Lee\",\"what\":\"Book Italian dinner for Mom's 60th birthday (Saturday Oct 24) and confirm the place t\u2026}"
+      },
+      {
+        "id": "step_mvfodwmgg",
+        "at": 1792486862166,
+        "kind": "promise",
+        "text": "Dana owes you something",
+        "detail": "Send the Larch Ventures board deck template",
+        "status": "done",
+        "tool": "record_promise",
+        "args": "{\"direction\":\"owed_to_you\",\"person\":\"Dana Wu\",\"what\":\"Send the Larch Ventures board deck template\",\"status\":\"upcoming\"}"
+      },
+      {
+        "id": "step_mvfodwmgi",
+        "at": 1792486862166,
+        "kind": "promise",
+        "text": "Alex owes you something",
+        "detail": "Send MSA redlines back to Jordan",
+        "status": "done",
+        "tool": "record_promise",
+        "args": "{\"direction\":\"owed_to_you\",\"person\":\"Alex Rivera\",\"what\":\"Send MSA redlines back to Jordan\",\"status\":\"overdue\"}"
+      },
+      {
+        "id": "step_mvfoe29qk",
+        "at": 1792486869484,
+        "kind": "promise",
+        "text": "Found a promise to Maya",
+        "detail": "Send the Q3 pilot metrics deck to Maya at Northwind",
+        "status": "done",
+        "tool": "record_promise",
+        "args": "{\"direction\":\"you_owe\",\"person\":\"Maya Chen\",\"what\":\"Send the Q3 pilot metrics deck to Maya at Northwind\",\"status\":\"due_today\"}"
+      },
+      {
+        "id": "step_mvfoe7d0m",
+        "at": 1792486876082,
+        "kind": "paper",
+        "text": "Rolled up The Morning Bark",
+        "detail": "All barked up and ready for approval",
+        "status": "done",
+        "tool": "publish_morning_bark",
+        "args": "{\"headline\":\"All barked up and ready for approval\"}"
+      }
+    ],
+    "paper": {
+      "date": "2026-10-20",
+      "headline": "All barked up and ready for approval",
+      "summary": "Parallel brief, deck to send, two calls to approve, one conflict to fix, and overdue redlines to nudge.",
+      "items": [
+        {
+          "id": "brief_mvfodwmd6",
+          "kind": "brief",
+          "eventId": "evt_parallel",
+          "eventTitle": "Coffee: Parallel \u00d7 Larkspur",
+          "start": "2026-10-20T10:30:00-07:00",
+          "company": "Parallel Web Systems",
+          "oneLiner": "Parallel builds web search and research APIs that give AI agents structured, cited access to the web.",
+          "recentNews": [
+            "April 2026 \u2014 Parallel partnered with Genpact to bring its APIs into enterprise research workflows, including insurance and sales.",
+            "May 2026 \u2014 Parallel launched Index, a platform for content owners to see how AI agents use their work and earn compensation tied to its contribution.",
+            "August 2026 \u2014 Parallel introduced Fast mode for Search, priced at $1 per 1,000 requests with roughly 700 ms average latency."
+          ],
+          "keyPeople": [
+            "Parag Agrawal \u2014 Co-founder & CEO",
+            "Travers Nisbet \u2014 Co-founder"
+          ],
+          "talkingPoints": [
+            "For Larkspur\u2019s clinic scheduling agent, which Parallel endpoint and call pattern would you recommend for the clinic-specific research we need?",
+            "How can we keep results grounded in current, authoritative clinic guidance, and how should we use the API\u2019s citations to verify answers?",
+            "Could we discuss a deeper integration or pilot, including expected latency and cost at our usage volume and what support would be available?"
+          ],
+          "sources": [
+            {
+              "url": "https://media.genpact.com/2026-04-08-Genpact-and-Parallel-Web-Systems-Partner-to-Drive-Tangible-Efficiency-from-AI-Systems",
+              "title": "Genpact and Parallel Web Systems Partner to Drive Tangible Efficiency from AI Systems - Apr 8, 2026"
+            },
+            {
+              "url": "https://parallel.ai/blog/introducing-index-by-parallel",
+              "title": "Introducing Index by Parallel | Parallel"
+            },
+            {
+              "url": "https://parallel.ai/blog/parallel-search-fast",
+              "title": "Introducing Parallel Search Fast | Parallel"
+            },
+            {
+              "url": "https://sequoiacap.com/founder/parag-agrawal",
+              "title": "Parag Agrawal | Sequoia Capital"
+            },
+            {
+              "url": "https://en.wikipedia.org/wiki/Parallel_Web_Systems",
+              "title": "Parallel Web Systems - Wikipedia"
+            }
+          ],
+          "processor": "base",
+          "runId": "trun_df25be6de759465db833a8c6ba2004f9",
+          "state": "pending"
+        },
+        {
+          "id": "conflict_mvfodwme9",
+          "kind": "conflict",
+          "eventIds": [
+            "evt_investor",
+            "evt_dentist"
+          ],
+          "keepEventId": "evt_investor",
+          "moveEventId": "evt_dentist",
+          "summary": "2:00 PM: Monthly investor update with Larch Ventures overlaps your dentist cleaning at Bright Smile",
+          "proposal": "Keep the investor update (2:00\u20133:00 PM) and reschedule the dentist. Bagel will call Bright Smile to find an opening later today or another day this week.",
+          "state": "pending",
+          "callId": "call_mvfodwmeb"
+        },
+        {
+          "id": "call_mvfodwmeb",
+          "kind": "call",
+          "businessId": "biz_dental",
+          "business": "Bright Smile Dental",
+          "phone": "(415) 555-0199",
+          "purpose": "reschedule",
+          "goal": "Reschedule the 2:00 PM cleaning to a later time today or another day this week.",
+          "why": "The dentist appointment at 2:00 PM directly conflicts with the monthly investor update with Larch Ventures.",
+          "details": [
+            "Jordan Lee",
+            "Phone on file (415) 555-0123",
+            "Appointment: Tue Oct 20 at 2:00 PM with Dr. Patel"
+          ],
+          "constraints": [
+            "Politely ask to waive the $50 late-change fee given the conflict is with a business meeting",
+            "Only accept times when Jordan's calendar is free (after 3:00 PM today, or another day this week)"
+          ],
+          "relatedEventId": "evt_dentist",
+          "opensAt": "09:00",
+          "state": "proposed"
+        },
+        {
+          "id": "call_mvfodwmfd",
+          "kind": "call",
+          "businessId": "biz_gym",
+          "business": "FlexFit Mission",
+          "phone": "(415) 555-0142",
+          "purpose": "cancel",
+          "goal": "Cancel the FlexFit membership before it renews on Friday, Oct 23.",
+          "why": "Jordan hasn't checked in since August 14 and the $89/month membership renews Friday \u2014 clearly not being used.",
+          "details": [
+            "Jordan Lee",
+            "Member ID FF-20931",
+            "Phone on file (415) 555-0123"
+          ],
+          "constraints": [
+            "Politely ask to waive any cancellation fees",
+            "Decline any retention offers or discount attempts",
+            "Confirm the cancellation is effective before the Oct 23 renewal date"
+          ],
+          "opensAt": "09:00",
+          "state": "proposed"
+        },
+        {
+          "id": "promise_mvfodwmgf",
+          "kind": "promise",
+          "direction": "you_owe",
+          "person": "Priya Lee",
+          "email": "priya.lee@family.example",
+          "what": "Book Italian dinner for Mom's 60th birthday (Saturday Oct 24) and confirm the place to Priya",
+          "due": "2026-10-21",
+          "status": "upcoming",
+          "why": "Jordan told Priya: \"I'll book dinner for Mom's birthday on Saturday. Thinking Italian? I'll confirm the place by Wednesday.\"",
+          "sourceMessageId": "msg_s3",
+          "draft": {
+            "to": "priya.lee@family.example",
+            "subject": "Re: Mom's 60th \ud83c\udf89",
+            "body": "Hey Priya \u2014 just wanted to confirm I'm on it! Booking an Italian spot for Saturday for Mom's 60th. I'll send the details by Wednesday.\n\nJ",
+            "threadId": "thr_mom"
+          },
+          "state": "pending"
+        },
+        {
+          "id": "promise_mvfodwmgh",
+          "kind": "promise",
+          "direction": "owed_to_you",
+          "person": "Dana Wu",
+          "email": "dana@larchvc.example",
+          "what": "Send the Larch Ventures board deck template",
+          "due": "2026-10-22",
+          "status": "upcoming",
+          "why": "Dana said: \"I'll send you our board deck template by Thursday.\"",
+          "sourceMessageId": "msg_r5",
+          "draft": null,
+          "state": "pending"
+        },
+        {
+          "id": "promise_mvfodwmgj",
+          "kind": "promise",
+          "direction": "owed_to_you",
+          "person": "Alex Rivera",
+          "email": "alex@bluebirdlegal.example",
+          "what": "Send MSA redlines back to Jordan",
+          "due": "2026-10-19",
+          "status": "overdue",
+          "why": "Alex said: \"I'll get the redlines back to you by Monday EOD.\" \u2014 that was Oct 19, now overdue.",
+          "sourceMessageId": "msg_r1",
+          "draft": {
+            "to": "alex@bluebirdlegal.example",
+            "subject": "Re: MSA redlines",
+            "body": "Hi Alex,\n\nJust checking in on the MSA redlines \u2014 I know Monday was the target. We're hoping to get this signed with Northwind this week, so even a rough pass would be great to keep things moving.\n\nThanks!\nJordan",
+            "threadId": "thr_msa"
+          },
+          "state": "pending"
+        },
+        {
+          "id": "promise_mvfoe29ql",
+          "kind": "promise",
+          "direction": "you_owe",
+          "person": "Maya Chen",
+          "email": "maya@northwindhealth.example",
+          "what": "Send the Q3 pilot metrics deck to Maya at Northwind",
+          "due": "2026-10-20",
+          "status": "due_today",
+          "why": "Jordan told Maya: \"I'll send over the Q3 pilot metrics deck by Tuesday so you have it before Wednesday's renewal review.\" Maya confirmed: \"Looking forward to the deck Tuesday.\"",
+          "sourceMessageId": "msg_s1",
+          "draft": {
+            "to": "maya@northwindhealth.example",
+            "subject": "Re: Northwind pilot \u2014 next steps",
+            "body": "Hi Maya,\n\nHere's the Q3 pilot metrics deck \u2014 attached. Hope this gives your VP of Ops everything they need for Wednesday's renewal review.\n\nLet me know if there's anything else useful I can pull together.\n\nBest,\nJordan",
+            "threadId": "thr_northwind",
+            "attachment": {
+              "fileId": "file_q3deck",
+              "name": "Northwind \u2014 Q3 pilot metrics.pdf"
+            }
+          },
+          "state": "pending"
+        }
+      ]
+    },
+    "stats": {
+      "iterations": 4,
+      "inputTokens": 31726,
+      "outputTokens": 2285,
+      "seconds": 76
+    }
+  },
+  "calls": {
+    "(415) 555-0199": {
+      "transcript": [
+        {
+          "speaker": "them",
+          "text": "Bright Smile Dental, this is Karen. How can I help you?",
+          "start": 4.2,
+          "end": 7.822313
+        },
+        {
+          "speaker": "bagel",
+          "text": "Hi Karen, this is Bagel, an AI assistant calling on behalf of Jordan Lee. We'd like to reschedule Jordan's cleaning appointment that's today at 2 PM with Dr. Patel.",
+          "start": 8.172313,
+          "end": 18.156893
+        },
+        {
+          "speaker": "them",
+          "text": "Thanks, Bagel. Just to verify, what is the phone number on file for Jordan Lee?",
+          "start": 18.506893,
+          "end": 23.011564
+        },
+        {
+          "speaker": "bagel",
+          "text": "The number on file is (415) 555-0123.",
+          "start": 23.361564,
+          "end": 27.819795
+        },
+        {
+          "speaker": "them",
+          "text": "Thanks, that matches. Since this is under 24 hours, there is a standard $50 late-change fee.",
+          "start": 28.169795,
+          "end": 34.392743
+        },
+        {
+          "speaker": "bagel",
+          "text": "Thanks, I appreciate you letting me know. Since this is a scheduling conflict with a work call, would it be possible to waive that fee for Jordan?",
+          "start": 34.742743000000004,
+          "end": 42.26600800000001
+        },
+        {
+          "speaker": "them",
+          "text": "I can waive it just this once for you. We have openings Wed, Oct 21 at 11:00 AM or Thu, Oct 22 at 4:00 PM. Which works best?",
+          "start": 42.61600800000001,
+          "end": 52.972108000000006
+        },
+        {
+          "speaker": "tool",
+          "text": "Checked Jordan's calendar: Wed, Oct 21 11:00 AM is taken",
+          "start": 53.32210800000001,
+          "end": 53.32210800000001
+        },
+        {
+          "speaker": "tool",
+          "text": "Checked Jordan's calendar: free Thu, Oct 22 3:45 PM\u20134:30 PM",
+          "start": 54.02210800000001,
+          "end": 54.02210800000001
+        },
+        {
+          "speaker": "bagel",
+          "text": "The Thursday works great \u2014 could we lock in October 22nd at 4:00 PM with Dr. Patel?",
+          "start": 54.72210800000001,
+          "end": 60.66641600000001
+        },
+        {
+          "speaker": "them",
+          "text": "You are booked for Thursday, October 22 at 4:00 PM. A confirmation text is going to the number on file. Thanks for calling!",
+          "start": 61.016416000000014,
+          "end": 69.42204000000001
+        },
+        {
+          "speaker": "bagel",
+          "text": "Perfect, thank you so much, Karen! Have a great day!",
+          "start": 69.77204,
+          "end": 72.419115
+        },
+        {
+          "speaker": "them",
+          "text": "You're welcome, have a great day too!",
+          "start": 72.769115,
+          "end": 74.858911
+        },
+        {
+          "speaker": "tool",
+          "text": "Moved it on Jordan's calendar to Thu, Oct 22, 4:00 PM",
+          "start": 75.208911,
+          "end": 75.208911
+        }
+      ],
+      "outcome": {
+        "status": "success",
+        "summary": "Rescheduled Jordan's cleaning from Tuesday Oct 20 at 2 PM to Thursday Oct 22 at 4 PM with Dr. Patel; $50 late-change fee was waived.",
+        "newTime": "2026-10-22T16:00:00-07:00",
+        "fee": "waived"
+      },
+      "audio": "biz_dental.mp3",
+      "durationSec": 75.937959
+    },
+    "(415) 555-0142": {
+      "transcript": [
+        {
+          "speaker": "them",
+          "text": "Thanks for calling FlexFit Mission, this is Tyler! How can I help?",
+          "start": 4.2,
+          "end": 7.822313
+        },
+        {
+          "speaker": "bagel",
+          "text": "Hi Tyler, this is Bagel, an AI assistant calling on behalf of Jordan Lee. I'd like to cancel Jordan's membership before it renews on Friday the 23rd.",
+          "start": 8.172313,
+          "end": 17.367415
+        },
+        {
+          "speaker": "them",
+          "text": "I can certainly help with that. To verify the account, could you please provide Jordan's Member ID or the ZIP code on file?",
+          "start": 17.717415000000003,
+          "end": 24.776281000000004
+        },
+        {
+          "speaker": "bagel",
+          "text": "Sure thing, the Member ID is FF-20931.",
+          "start": 25.126281000000006,
+          "end": 28.516394000000005
+        },
+        {
+          "speaker": "them",
+          "text": "Thanks, that matches our records. Before we cancel, I\u2019d love to offer you 50% off for the next three months to keep Jordan active.",
+          "start": 28.866394000000007,
+          "end": 36.203900000000004
+        },
+        {
+          "speaker": "bagel",
+          "text": "I appreciate the offer, but Jordan would like to go ahead with the cancellation. Could we also waive any cancellation fees?",
+          "start": 36.553900000000006,
+          "end": 43.427007
+        },
+        {
+          "speaker": "them",
+          "text": "No problem, there's no cancellation fee. As a last option, would a $10/month freeze work for Jordan?",
+          "start": 43.777007000000005,
+          "end": 49.30335600000001
+        },
+        {
+          "speaker": "bagel",
+          "text": "No, Jordan would prefer a full cancellation. Could you confirm it's effective before the October 23rd renewal with no further charges?",
+          "start": 49.65335600000001,
+          "end": 57.362381000000006
+        },
+        {
+          "speaker": "them",
+          "text": "Understood. I\u2019ve processed the cancellation effective before Oct 23, with no fees. Your confirmation number is CX-4471, and an email is on its way.",
+          "start": 57.71238100000001,
+          "end": 67.743401
+        },
+        {
+          "speaker": "bagel",
+          "text": "Perfect, that's all I needed. Thanks so much for your help, Tyler!",
+          "start": 68.093401,
+          "end": 71.576394
+        },
+        {
+          "speaker": "them",
+          "text": "You're welcome! Have a great day.",
+          "start": 71.92639399999999,
+          "end": 74.06262999999998
+        }
+      ],
+      "outcome": {
+        "status": "success",
+        "summary": "Cancelled Jordan's FlexFit Mission membership before the Oct 23 renewal, no fees, confirmation CX-4471.",
+        "confirmation": "CX-4471",
+        "fee": "waived"
+      },
+      "audio": "biz_gym.mp3",
+      "durationSec": 74.44898
+    }
+  }
+}
