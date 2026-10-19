@@ -17,7 +17,8 @@
     "record": "tsx scripts/record-snapshot.ts",
     "video:narrate": "tsx scripts/narrate.ts",
     "video:record": "node scripts/record-video.mjs",
-    "video": "node scripts/make-video.mjs"
+    "video": "node scripts/make-video.mjs",
+    "slides": "tsx scripts/make-slides.tsx"
   },
   "dependencies": {
     "@cline/sdk": "0.0.95",

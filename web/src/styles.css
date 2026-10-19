@@ -568,9 +568,9 @@ button:disabled {
   position: sticky;
   bottom: 0;
   margin: 10px -18px -40px;
-  padding: 26px 18px 34px;
+  padding: 34px 18px 34px;
   text-align: center;
-  background: linear-gradient(180deg, rgba(70, 55, 138, 0), rgba(58, 46, 120, 0.96) 38%);
+  background: linear-gradient(180deg, rgba(58, 46, 120, 0) 0, rgba(58, 46, 120, 0.98) 30px);
   animation: stepIn 0.4s ease-out;
 }
 .night__wake p {

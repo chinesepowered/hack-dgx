@@ -7,7 +7,8 @@ While you sleep, Bagel the beagle preps tomorrow. At 7:00 AM he drops <i>The Mor
 every promise you made, every reply you're owed, a brief for your first meeting, and the awkward calls, already lined up.<br>
 One tap each. Then at 9:00 he makes the calls.</p>
 
-<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the 2-minute demo</a></b> (1080p, narrated)</p>
+<!-- Demo video: swap this link for the YouTube URL once it's uploaded. -->
+<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the 2-minute demo</a></b> · <a href="slides.pdf">Slides</a> · <a href="PITCH.md">Pitch</a></p>
 
 ---
 
@@ -23,90 +24,71 @@ One tap each. Then at 9:00 he makes the calls.</p>
 | --- | --- | --- |
 | ![Night shift](docs/night-shift.png) | ![The Morning Bark](docs/morning-bark.png) | ![Call](docs/call.png) |
 
+## Architecture
+
+```mermaid
+flowchart LR
+  subgraph night["🌙 2:00 AM · the night shift"]
+    direction TB
+    NS["<b>Night-shift agent</b><br/>Cline SDK · Qwen 3.8 on W&B Inference"]
+    C1["<b>Composio</b> · Gmail, Calendar, Drive<br/>GMAIL_FETCH_EMAILS<br/>GOOGLECALENDAR_EVENTS_LIST<br/>GOOGLEDRIVE_FIND_FILE"]
+    P1["<b>Parallel</b> Task API<br/>cited meeting research"]
+    NS -- "reads" --> C1
+    NS -- "research_meeting" --> P1
+  end
+  MB[["🗞️ <b>The Morning Bark</b><br/>promises · brief<br/>conflict fix · calls"]]
+  subgraph morning["☀️ 7:00 AM · one tap each"]
+    direction TB
+    U(("🙋 You"))
+    C2["<b>Composio</b> · Gmail<br/>GMAIL_SEND_EMAIL"]
+    U -- "Send" --> C2
+  end
+  subgraph calls["📞 9:00 AM · the calls"]
+    direction TB
+    CA["<b>Call agent</b><br/>Cline SDK · Qwen 3.8"]
+    C3["<b>Composio</b> · Calendar<br/>FIND_FREE_SLOTS · PATCH_EVENT"]
+    FD["Front desk<br/>(simulated voice in the demo)"]
+    EL["<b>ElevenLabs</b><br/>voices"]
+    CA -- "checks your calendar,<br/>moves the event" --> C3
+    CA <-- "conversation" --> FD
+    CA --> EL
+  end
+  NS -- "record_promise<br/>record_conflict<br/>propose_call" --> MB
+  MB --> U
+  U -- "Approve call" --> CA
+```
+
+The phone app (React) talks to a small Express server over server-sent events. The server owns a demo clock, so the night shift, the 7:00 AM paper and the 9:00 AM calls can run on schedule or be skipped to on stage. Each tool call the agents make becomes a paw print on the trail and a line in the app's "under the hood" log.
+
+## Built with
+
+- **Cline SDK** (`@cline/sdk`) is Bagel's brain, twice: the night-shift agent (`server/agent/nightshift.ts`) and Bagel on the phone (`server/caller/call.ts`). It uses custom tools built with `createTool`, completion tools (`publish_morning_bark`, `end_call`), and the SDK's event stream, which drives the trail.
+- **Qwen 3.8** (`Qwen/Qwen3.8-27B`) on **W&B Inference**, through Cline's `openai-compatible` provider, with reasoning effort set per job.
+- **Parallel** Task API (`base` processor, JSON output schema) researches first meetings and returns a one-liner, recent news, key people and talking points, with sources for every field.
+- **Composio**: Bagel reaches your accounts through Composio's tool slugs and argument names (`GMAIL_FETCH_EMAILS`, `GOOGLECALENDAR_EVENTS_LIST`, `GOOGLECALENDAR_FIND_FREE_SLOTS`, `GOOGLECALENDAR_PATCH_EVENT`, `GMAIL_SEND_EMAIL`, `GOOGLEDRIVE_FIND_FILE`). The hackathon build answers them from sample data (`server/integrations/`); connecting real accounts is one swap:
+
+  ```ts
+  const session = await new Composio().create(userId)   // Gmail, Calendar, Drive
+  const result = await session.execute(slug, args)       // same slugs, same args
+  ```
+- **ElevenLabs** voices Bagel on the phone (`server/caller/voice.ts`), mixed with a ringback tone and a phone-line filter.
+
 ## Run it
 
 ```bash
 npm install
-npm run dev            # server on :8787, app on http://localhost:5173
+npm run dev            # app on http://localhost:5173
 ```
 
-Open http://localhost:5173 and use the time buttons (11:58 PM → 2:00 AM → 7:00 AM → 9:00 AM), or tap through the phone.
+It starts in replay mode, which plays back a recorded run and needs no keys. To run the agents live, copy `.env.example` to `.env`, add the keys, and press **Live** in the side panel.
 
-- **Replay mode** (default) plays back a recorded *real* run from `data/demo/snapshot.json`: the agent's actual tool calls, the actual Parallel brief, the actual voiced calls. No keys, no network, no cost. Approvals and calendar changes still execute.
-- **Live mode** runs everything for real. `cp .env.example .env`, add keys, then hit **Live** in the side panel (or `BAGEL_MODE=live npm run dev`). A live night shift takes about a minute (plus a minute or two for Parallel research on a new company); each call takes ~15 s to converse and ~20 s to voice.
-
-`npm start` builds the web app and serves everything from :8787. On a phone-sized screen the app fills the screen; open it on your phone.
-
-## How it works
+## Project layout
 
 ```
-                    ┌──────────────── Cline SDK Agent (Qwen 3.8 on W&B Inference) ────────────────┐
-  2:00 AM  ───────▶ │ tools: GMAIL_FETCH_EMAILS · GOOGLECALENDAR_EVENTS_LIST · GOOGLEDRIVE_FIND_FILE │──▶ The Morning Bark
-                    │        research_meeting (Parallel) · record_promise · record_conflict ·       │    (promises, brief,
-                    │        propose_call · publish_morning_bark                                     │     conflict, calls)
-                    └─────────────────────── events ▶ paw-print trail ────────────────────────────────┘
-  7:00 AM  ───────▶ you tap Send / Approve call  ──▶ GMAIL_SEND_EMAIL · schedule call for opening time
-                    ┌──────── Cline SDK Agent: Bagel on the phone ────────┐
-  9:00 AM  ───────▶ │ tools: GOOGLECALENDAR_FIND_FREE_SLOTS · end_call     │──▶ GOOGLECALENDAR_PATCH_EVENT
-                    └───── voices: ElevenLabs (Bagel + front desk) ────────┘     outcome + recording
-```
-
-**Sponsor tech, and where it lives**
-
-- **Cline SDK** (`@cline/sdk`) is Bagel's brain, twice: the night-shift agent (`server/agent/nightshift.ts`) and Bagel on the phone (`server/caller/call.ts`). Custom tools via `createTool` with zod schemas, a completion tool (`publish_morning_bark`, `end_call`), and the SDK's event stream (`tool-started` / `tool-finished`) drives the paw-print trail and the "under the hood" log.
-- **Qwen 3.8** (`Qwen/Qwen3.8-27B`) on **W&B Inference**, through Cline's `openai-compatible` provider. Reasoning is set per job with `modelOptions.reasoningEffort` (`low` for planning, off for the simulated front desk).
-- **Parallel** Task API (`base` processor, JSON output schema) researches first meetings and returns a one-liner, recent news, key people and talking points, with the sources behind each field (`server/research/parallel.ts`).
-- **Composio**: Bagel calls your accounts through Composio's real tool slugs and argument names (`GMAIL_FETCH_EMAILS`, `GOOGLECALENDAR_EVENTS_LIST`, `GOOGLECALENDAR_FIND_FREE_SLOTS`, `GOOGLECALENDAR_PATCH_EVENT`, `GMAIL_SEND_EMAIL`, `GOOGLEDRIVE_FIND_FILE`). For the hackathon those calls are answered by sample data (`server/integrations/composio.ts`, `dataset.ts`). Going live is one swap:
-
-  ```ts
-  import { Composio } from "@composio/core"
-  const session = await new Composio().create(userId)   // Gmail, Calendar, Drive
-  const result = await session.execute(slug, args)       // same slugs, same args
-  ```
-
-  For a real account: use read-only Gmail scopes on the auth config, restrict the session to read-only tools, and keep every send behind a tap.
-- **ElevenLabs** voices Bagel and the front desk (`server/caller/voice.ts`); ffmpeg mixes in a ringback tone and a phone-line filter.
-
-## Honest notes
-
-- Everything Jordan sees comes from **sample data** shaped exactly like Composio's responses. The meeting brief is **real** Parallel research on a real company.
-- On the calls, **the front desk is simulated**: a second model plays the receptionist, following the business's policies (fees, retention offers, open slots). Bagel's side is the real agent, and his first line always says he's an AI assistant calling on Jordan's behalf. Real phone numbers (e.g. Twilio or ElevenLabs' phone integration) are the production step.
-- Nothing is sent, booked or changed without a tap in *The Morning Bark*.
-
-## Recording a new demo run
-
-```bash
-npm run record                      # live night shift + both calls, voiced; overwrites data/demo/snapshot.json
-npm run record -- --keep=biz_gym    # re-record, but keep an existing call recording
-```
-
-Each call is rehearsed as text first and only voiced once it passes checks (goal met, AI disclosure, no gendered language, length), so ElevenLabs credits aren't spent on bad takes. Voiced lines are cached in `data/runtime/tts`.
-
-## Remaking the demo video
-
-```bash
-npm run dev                 # keep running in another terminal
-npm run video:narrate       # voices demo/script.json with ElevenLabs (cached per line in demo/narration)
-npm run video:record        # drives the app in replay mode at 1920x1080 and captures frames + timings
-npm run video               # mixes narration + call audio, writes demo/bagel-demo.mp4
-```
-
-The recorder clicks through the real app (replay mode), fast-forwards inside the dentist call, and logs exactly which stretch of call audio is on screen, so the soundtrack stays in sync with the transcript.
-
-## Layout
-
-```
-server/
-  agent/nightshift.ts     the night shift (Cline SDK agent + tools)
-  caller/call.ts          Bagel on the phone (Cline SDK agent) + simulated front desk
-  caller/voice.ts         ElevenLabs voices + ffmpeg mixing
-  research/parallel.ts    Parallel Task API meeting briefs
-  integrations/           Composio-shaped tools over sample data
-  engine.ts               demo clock, approvals, call queue, record/replay
-  index.ts                API + live updates (SSE)
-web/src/                  the phone app: Bagel (SVG), night trail, The Morning Bark, call screen
-scripts/                  record-snapshot, try-nightshift, try-calls, flow (end-to-end screenshots),
-                          narrate / record-video / make-video (the demo video)
-data/demo/                the recorded run used by replay mode (+ call audio)
-demo/                     the demo video, its narration script and voiced lines
+server/agent/          the night-shift agent
+server/caller/         Bagel on the phone + voices
+server/research/       Parallel meeting briefs
+server/integrations/   Composio-shaped tools over sample data
+server/engine.ts       demo clock, approvals, call queue
+web/src/               the phone app: Bagel, the night trail, The Morning Bark, the call screen
 ```

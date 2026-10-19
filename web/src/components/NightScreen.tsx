@@ -29,7 +29,7 @@ export function NightScreen({ state, now }: { state: AppState; now: number }) {
       <div className="night__sky" aria-hidden="true">
         <div className="stars stars--a" />
         <div className="stars stars--b" />
-        <div className="moon" />
+        {ns.status === "idle" && <div className="moon" />}
       </div>
       <header className="appbar appbar--night">
         <Paw size={20} color="#ffd166" />

@@ -83,12 +83,19 @@ export class Engine {
   /** Move the demo clock forward, e.g. to skip ahead inside a call. */
   advance(seconds: number) {
     this.clock.set(this.clock.now() + seconds * 1000)
+    this.clockChanged()
+  }
+
+  /** Let the app re-sync its clock right away instead of on the next heartbeat. */
+  private clockChanged() {
+    this.store.emit("change", this.store.state)
   }
 
   /** Jump the demo clock to a time on the day being prepped (or the evening before). */
   jump(hhmm: string, leadSeconds = 2) {
     const day = hhmm >= "12:00" ? this.state.dataset.today : this.state.dataset.tomorrow
     this.clock.set(Date.parse(localISO(day, hhmm)) - leadSeconds * 1000)
+    this.clockChanged()
   }
 
   async startNightShift() {

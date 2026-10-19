@@ -1,3 +1,4 @@
+/** @jsxRuntime automatic */
 // Bagel, a tri-color beagle drawn as one SVG. Poses change the face and
 // props; CSS handles the wagging, ear sway, blinking and sniffing.
 type Pose = "happy" | "sniff" | "sleep" | "paper" | "phone" | "proud" | "talk"
