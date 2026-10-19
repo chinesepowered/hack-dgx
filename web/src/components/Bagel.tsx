@@ -19,16 +19,19 @@ const C = {
 export function Bagel({
   pose = "happy",
   headlamp = false,
+  frisbee = false,
   size = 200,
   className = "",
 }: {
   pose?: Pose
   headlamp?: boolean
+  frisbee?: boolean
   size?: number
   className?: string
 }) {
   const eyes = pose === "sleep" ? "closed" : pose === "proud" ? "happy" : "open"
-  const mouth = pose === "talk" ? "talk" : pose === "happy" || pose === "proud" ? "tongue" : pose === "paper" ? "none" : "smile"
+  const mouth =
+    pose === "talk" ? "talk" : pose === "paper" || frisbee ? "none" : pose === "happy" || pose === "proud" ? "tongue" : "smile"
   return (
     <svg
       className={`bagel bagel--${pose} ${className}`}
@@ -144,6 +147,15 @@ export function Bagel({
               <rect x={66} y={124} width={108} height={22} rx={11} fill="#f4efe4" stroke={C.line} strokeWidth={3} transform="rotate(-6 120 135)" />
               <path d="M84 128 v18 M156 122 v18" stroke="#c8bfae" strokeWidth={3} transform="rotate(-6 120 135)" />
               <rect x={108} y={124} width={22} height={22} fill="#e2574c" opacity={0.9} transform="rotate(-6 120 135)" />
+            </g>
+          )}
+
+          {/* frisbee in mouth, for when the work's done */}
+          {frisbee && (
+            <g className="bagel__frisbee" transform="rotate(-8 120 140)">
+              <ellipse cx={120} cy={141} rx={50} ry={14} fill="#ff5a5f" stroke={C.line} strokeWidth={3} />
+              <ellipse cx={120} cy={137} rx={34} ry={8} fill="#ff8a80" />
+              <ellipse cx={120} cy={136} rx={18} ry={4} fill="none" stroke="#fff3f0" strokeWidth={2} opacity={0.8} />
             </g>
           )}
 

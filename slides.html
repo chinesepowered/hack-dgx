@@ -69,6 +69,7 @@ box-shadow:120px 120px #fff,340px 80px #ffe7a3,620px 200px #fff,880px 110px #cfd
 .rituals{display:flex;gap:14px}
 .rituals .chip{border:2.5px solid rgba(255,209,102,.55);color:var(--gold);background:rgba(255,209,102,.07);font-size:23px;padding:10px 20px}
 .rituals .chip b{color:#fff}
+.s-title .open{margin-top:30px;font:700 24px var(--ui);color:#c9cdf5;letter-spacing:.2px;white-space:nowrap}
 .s-title .foot{position:absolute;left:130px;bottom:58px;font:700 24px var(--ui);color:#a9add9;letter-spacing:.4px}
 .s-title .foot b{color:#fff}
 
@@ -138,17 +139,22 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
 .s-why{background:radial-gradient(circle at 85% 70%,rgba(255,209,102,.35),transparent 32%),var(--paper)}
 .s-why .top{position:absolute;left:120px;top:96px;width:1150px}
 .s-why h2{margin-top:18px}
-.pillars{position:absolute;left:120px;top:400px;width:1150px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.pillar{background:var(--card);border:2px solid var(--rule);border-radius:28px;padding:30px 30px 32px;box-shadow:0 3px 0 rgba(43,33,27,.07)}
-.pillar .ico{font-size:52px}
-.pillar h3{font:700 36px/1.1 var(--serif);margin:14px 0 12px}
-.pillar p{font:700 24px/1.42 var(--ui);color:#5e4f43;margin:0}
-.next{position:absolute;left:120px;top:800px;width:1150px}
-.next h4{margin:0 0 16px;font:800 22px var(--ui);letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
-.next .row{display:flex;flex-wrap:wrap;gap:12px}
-.next .chip{background:#fff;border:2px dashed #c9b9a2;color:var(--ink);font-size:22px;padding:9px 18px}
-.s-why .dog{position:absolute;right:120px;top:210px}
-.s-why .sign{position:absolute;right:110px;bottom:120px;width:520px;text-align:center;font:700 44px/1.2 var(--serif);text-wrap:balance}
+.pillars{position:absolute;left:120px;top:372px;width:1150px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.pillar{display:grid;grid-template-columns:56px 1fr;gap:4px 18px;align-items:start;align-content:start;background:var(--card);border:2px solid var(--rule);border-radius:24px;padding:22px 26px;box-shadow:0 3px 0 rgba(43,33,27,.07)}
+.pillar .ico{grid-row:span 2;font-size:44px;line-height:1.1}
+.pillar h3{font:700 32px/1.1 var(--serif);margin:0 0 6px}
+.pillar p{font:700 21px/1.4 var(--ui);color:#5e4f43;margin:0}
+.next{position:absolute;left:120px;top:772px;width:1150px}
+.shift{display:grid;grid-template-columns:64px 1fr;gap:4px 18px;align-items:center;background:var(--ink);color:#fff;border-radius:24px;padding:20px 28px}
+.shift .ico{grid-row:span 2;font-size:48px}
+.shift b{font:700 30px var(--serif);color:var(--gold)}
+.shift b small{font:800 16px var(--ui);letter-spacing:3px;color:#ffb68a;margin-left:14px;vertical-align:5px}
+.shift span{font:700 21px/1.4 var(--ui);color:#e8e2d8}
+.shift code{font:700 19px ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff}
+.next .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.next .chip{background:#fff;border:2px dashed #c9b9a2;color:var(--ink);font-size:21px;padding:8px 16px}
+.s-why .dog{position:absolute;right:140px;top:190px}
+.s-why .sign{position:absolute;right:100px;top:640px;width:560px;text-align:center;font:700 40px/1.2 var(--serif);text-wrap:balance}
 .s-why .sign small{display:block;margin-top:14px;font:800 24px var(--ui);color:var(--brand);letter-spacing:1px}
 
 @media print{
@@ -175,6 +181,7 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
         <span class="chip">🗞️ <b>7 AM</b> The Morning Bark</span>
         <span class="chip">📞 <b>9 AM</b> awkward calls</span>
       </div>
+      <div class="open">🔓 Open source, open weights · 💻 Runs on your machine · 🧠 Your choice of model</div>
     </div>
     <div class="foot">Built with <b>Cline SDK</b> · <b>Qwen 3.8</b> on W&amp;B Inference · <b>Parallel</b> · <b>ElevenLabs</b> · <b>Composio</b>-ready</div>
   </section>
@@ -221,7 +228,7 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
     <div class="mid">
     <div class="flow">
       <div class="stage"><div class="when w1">2:00<small>AM</small></div>
-        <div class="box"><h4>Night-shift agent <span>Cline SDK · Qwen 3.8 on W&amp;B Inference</span></h4>
+        <div class="box"><h4>Night-shift agent <span>Cline SDK · Qwen 3.8 on W&amp;B, or any model you choose</span></h4>
           <div class="tools">
             <span class="tool"><i class="p-composio">Composio</i>GMAIL_FETCH_EMAILS</span>
             <span class="tool"><i class="p-composio">Composio</i>GOOGLECALENDAR_EVENTS_LIST</span>
@@ -252,7 +259,7 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
     </div>
     <div class="trust">
       <span class="chip">✓ Draft-first: nothing sent without a tap</span>
-      <span class="chip">✓ Always says it's an AI</span>
+      <span class="chip">✓ Open source, runs on your machine</span>
       <span class="chip">✓ Composio tool shapes: one swap to real accounts</span>
       <small>Demo: sample inbox &amp; calendar · the phone's front desk is a simulated voice</small>
     </div>
@@ -260,18 +267,22 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
 <section class="slide s-why" data-title="Why every day">
     <div class="top"><div class="kicker">Why you'd use it every day</div><h2>It shows up. It does the work. <em>It asks first.</em></h2></div>
     <div class="pillars">
-      <div class="pillar"><div class="ico">🔁</div><h3>A ritual, not a prompt</h3><p>2 AM, 7 AM, 9 AM. Bagel comes to you; there's nothing to remember to ask.</p></div>
-      <div class="pillar"><div class="ico">🦴</div><h3>Work done, not summarized</h3><p>Drafts with attachments, cited briefs, appointments actually moved.</p></div>
-      <div class="pillar"><div class="ico">🛡️</div><h3>Safe by default</h3><p>One tap to send, AI disclosure on every call, read-only wherever possible.</p></div>
+      <div class="pillar"><div class="ico">🔁</div><h3>A ritual, not a prompt</h3><p>2 AM, 7 AM, 9 AM. Bagel comes to you, so there's nothing to remember to ask.</p></div>
+      <div class="pillar"><div class="ico">🦴</div><h3>Done, not summarized</h3><p>Drafts with attachments, cited briefs, appointments actually moved.</p></div>
+      <div class="pillar"><div class="ico">🛡️</div><h3>Safe by default</h3><p>One tap to send, AI disclosure on every call, read-only overnight.</p></div>
+      <div class="pillar"><div class="ico">🔓</div><h3>Yours, not theirs</h3><p>Open source, runs on open-weights models (Qwen 3.8 today), lives on your machine. Swap in any model, even one you run locally. Muse and Instinct are closed.</p></div>
     </div>
-    <div class="next"><h4>Next</h4><div class="row">
-      <span class="chip">📞 Real phone lines (Twilio / ElevenLabs)</span>
-      <span class="chip">🔌 Connect Gmail &amp; Calendar via Composio</span>
-      <span class="chip">💬 The Morning Bark in Telegram (Cline connectors)</span>
-      <span class="chip">✍️ Learns your voice from your edits</span>
-    </div></div>
-    <div class="dog"><svg class="bagel bagel--proud " viewBox="0 0 240 250" width="430" height="447.9166666666667" role="img" aria-label="Bagel the beagle"><g class="bagel__bob"><g class="bagel__tail"><path d="M150 206 C 194 206, 218 176, 208 134" fill="none" stroke="#5a3720" stroke-width="20" stroke-linecap="round"></path><path d="M150 206 C 194 206, 218 176, 208 134" fill="none" stroke="#dc8f4a" stroke-width="14" stroke-linecap="round"></path><path d="M208 134 C 207 128, 205 124, 203 121" fill="none" stroke="#5a3720" stroke-width="20" stroke-linecap="round"></path><path d="M209 136 C 208 129, 206 125, 203 121" fill="none" stroke="#fffaf2" stroke-width="14" stroke-linecap="round"></path></g><ellipse cx="78" cy="216" rx="19" ry="15" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="162" cy="216" rx="19" ry="15" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="72" cy="226" rx="13" ry="8" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="168" cy="226" rx="13" ry="8" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><path d="M74 214 C 66 178, 86 150, 120 150 C 154 150, 174 178, 166 214 C 162 228, 78 228, 74 214 Z" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></path><path d="M76 204 C 70 182, 80 161, 101 152 C 92 166, 88 184, 89 204 Z" fill="#3d2b22"></path><path d="M164 204 C 170 182, 160 161, 139 152 C 148 166, 152 184, 151 204 Z" fill="#3d2b22"></path><path d="M100 160 C 108 156, 132 156, 140 160 C 146 184, 140 214, 120 220 C 100 214, 94 184, 100 160 Z" fill="#fffaf2"></path><g><ellipse cx="101" cy="229" rx="15" ry="10" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="139" cy="229" rx="15" ry="10" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><path d="M96 232 v-5 M106 232 v-5 M134 232 v-5 M144 232 v-5" stroke="#5a3720" stroke-width="2" stroke-linecap="round" opacity="0.55"></path></g><g class="bagel__head"><ellipse cx="120" cy="100" rx="62" ry="54" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><path d="M112 50 C 116 47, 124 47, 128 50 C 131 66, 133 84, 134 100 L 106 100 C 107 84, 109 66, 112 50 Z" fill="#fffaf2"></path><ellipse cx="120" cy="120" rx="31" ry="24" fill="#fffaf2"></ellipse><g class="bagel__ear bagel__ear--l"><path d="M70 72 C 46 78, 36 116, 44 148 C 49 166, 70 166, 77 150 C 85 130, 87 96, 70 72 Z" fill="#93552a" stroke="#5a3720" stroke-width="3" stroke-linejoin="round"></path><path d="M66 86 C 54 100, 50 124, 54 144" stroke="#7a4321" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"></path></g><g class="bagel__ear bagel__ear--r"><path d="M170 72 C 194 78, 204 116, 196 148 C 191 166, 170 166, 163 150 C 155 130, 153 96, 170 72 Z" fill="#93552a" stroke="#5a3720" stroke-width="3" stroke-linejoin="round"></path><path d="M174 86 C 186 100, 190 124, 186 144" stroke="#7a4321" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"></path></g><ellipse cx="86" cy="122" rx="10" ry="6" fill="#ff8fa3" opacity="0.55"></ellipse><ellipse cx="154" cy="122" rx="10" ry="6" fill="#ff8fa3" opacity="0.55"></ellipse><g class="bagel__eyes"><path d="M90 103 Q 99 92 108 103 M132 103 Q 141 92 150 103" stroke="#2b1b14" stroke-width="3.6" stroke-linecap="round" fill="none"></path></g><g class="bagel__nose"><path d="M109 112 Q 120 106 131 112 Q 129 123 120 125 Q 111 123 109 112 Z" fill="#2b1b14"></path><ellipse cx="115.5" cy="112.5" rx="3.5" ry="1.8" fill="#fff" opacity="0.7"></ellipse></g><path d="M120 125 L 120 130" stroke="#2b1b14" stroke-width="2.6" stroke-linecap="round"></path><path d="M114 133 Q 120 147 126 133 Z" fill="#ff7f95" stroke="#5a3720" stroke-width="1.6"></path><path d="M110 129 Q 115 135 120 130 Q 125 135 130 129" stroke="#2b1b14" stroke-width="2.6" stroke-linecap="round" fill="none"></path></g></g><defs><linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff3b0" stop-opacity="0.9"></stop><stop offset="1" stop-color="#fff3b0" stop-opacity="0"></stop></linearGradient></defs></svg></div>
-    <div class="sign">Every night, Bagel's on duty.<small><svg class="" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><g fill="#e8743b"><ellipse cx="16" cy="21" rx="8" ry="6.5"></ellipse><ellipse cx="7" cy="13" rx="3.4" ry="4.2" transform="rotate(-20 7 13)"></ellipse><ellipse cx="12.5" cy="7.5" rx="3.4" ry="4.4" transform="rotate(-8 12.5 7.5)"></ellipse><ellipse cx="19.5" cy="7.5" rx="3.4" ry="4.4" transform="rotate(8 19.5 7.5)"></ellipse><ellipse cx="25" cy="13" rx="3.4" ry="4.2" transform="rotate(20 25 13)"></ellipse></g></svg> GOOD BOY</small></div>
+    <div class="next">
+      <div class="shift"><span class="ico">🛠️</span><b>Your backlog<small>NEXT SHIFT</small></b>
+        <span>Overnight, Bagel hands the GitHub issues you've labeled to Cline (or <code>claude -p</code>) on your machine, each in its own branch. By 7 AM there's a draft PR with the tests run. You still tap to merge.</span></div>
+      <div class="row">
+        <span class="chip">📞 Real phone lines</span>
+        <span class="chip">🔌 Real Gmail &amp; Calendar via Composio</span>
+        <span class="chip">💬 The Morning Bark in Telegram</span>
+      </div>
+    </div>
+    <div class="dog"><svg class="bagel bagel--proud " viewBox="0 0 240 250" width="400" height="416.6666666666667" role="img" aria-label="Bagel the beagle"><g class="bagel__bob"><g class="bagel__tail"><path d="M150 206 C 194 206, 218 176, 208 134" fill="none" stroke="#5a3720" stroke-width="20" stroke-linecap="round"></path><path d="M150 206 C 194 206, 218 176, 208 134" fill="none" stroke="#dc8f4a" stroke-width="14" stroke-linecap="round"></path><path d="M208 134 C 207 128, 205 124, 203 121" fill="none" stroke="#5a3720" stroke-width="20" stroke-linecap="round"></path><path d="M209 136 C 208 129, 206 125, 203 121" fill="none" stroke="#fffaf2" stroke-width="14" stroke-linecap="round"></path></g><ellipse cx="78" cy="216" rx="19" ry="15" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="162" cy="216" rx="19" ry="15" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="72" cy="226" rx="13" ry="8" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="168" cy="226" rx="13" ry="8" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><path d="M74 214 C 66 178, 86 150, 120 150 C 154 150, 174 178, 166 214 C 162 228, 78 228, 74 214 Z" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></path><path d="M76 204 C 70 182, 80 161, 101 152 C 92 166, 88 184, 89 204 Z" fill="#3d2b22"></path><path d="M164 204 C 170 182, 160 161, 139 152 C 148 166, 152 184, 151 204 Z" fill="#3d2b22"></path><path d="M100 160 C 108 156, 132 156, 140 160 C 146 184, 140 214, 120 220 C 100 214, 94 184, 100 160 Z" fill="#fffaf2"></path><g><ellipse cx="101" cy="229" rx="15" ry="10" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="139" cy="229" rx="15" ry="10" fill="#fffaf2" stroke="#5a3720" stroke-width="3"></ellipse><path d="M96 232 v-5 M106 232 v-5 M134 232 v-5 M144 232 v-5" stroke="#5a3720" stroke-width="2" stroke-linecap="round" opacity="0.55"></path></g><g class="bagel__head"><ellipse cx="120" cy="100" rx="62" ry="54" fill="#dc8f4a" stroke="#5a3720" stroke-width="3"></ellipse><path d="M112 50 C 116 47, 124 47, 128 50 C 131 66, 133 84, 134 100 L 106 100 C 107 84, 109 66, 112 50 Z" fill="#fffaf2"></path><ellipse cx="120" cy="120" rx="31" ry="24" fill="#fffaf2"></ellipse><g class="bagel__ear bagel__ear--l"><path d="M70 72 C 46 78, 36 116, 44 148 C 49 166, 70 166, 77 150 C 85 130, 87 96, 70 72 Z" fill="#93552a" stroke="#5a3720" stroke-width="3" stroke-linejoin="round"></path><path d="M66 86 C 54 100, 50 124, 54 144" stroke="#7a4321" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"></path></g><g class="bagel__ear bagel__ear--r"><path d="M170 72 C 194 78, 204 116, 196 148 C 191 166, 170 166, 163 150 C 155 130, 153 96, 170 72 Z" fill="#93552a" stroke="#5a3720" stroke-width="3" stroke-linejoin="round"></path><path d="M174 86 C 186 100, 190 124, 186 144" stroke="#7a4321" stroke-width="5" stroke-linecap="round" fill="none" opacity="0.6"></path></g><ellipse cx="86" cy="122" rx="10" ry="6" fill="#ff8fa3" opacity="0.55"></ellipse><ellipse cx="154" cy="122" rx="10" ry="6" fill="#ff8fa3" opacity="0.55"></ellipse><g class="bagel__eyes"><path d="M90 103 Q 99 92 108 103 M132 103 Q 141 92 150 103" stroke="#2b1b14" stroke-width="3.6" stroke-linecap="round" fill="none"></path></g><g class="bagel__nose"><path d="M109 112 Q 120 106 131 112 Q 129 123 120 125 Q 111 123 109 112 Z" fill="#2b1b14"></path><ellipse cx="115.5" cy="112.5" rx="3.5" ry="1.8" fill="#fff" opacity="0.7"></ellipse></g><g class="bagel__frisbee" transform="rotate(-8 120 140)"><ellipse cx="120" cy="141" rx="50" ry="14" fill="#ff5a5f" stroke="#5a3720" stroke-width="3"></ellipse><ellipse cx="120" cy="137" rx="34" ry="8" fill="#ff8a80"></ellipse><ellipse cx="120" cy="136" rx="18" ry="4" fill="none" stroke="#fff3f0" stroke-width="2" opacity="0.8"></ellipse></g></g></g><defs><linearGradient id="beam" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#fff3b0" stop-opacity="0.9"></stop><stop offset="1" stop-color="#fff3b0" stop-opacity="0"></stop></linearGradient></defs></svg></div>
+    <div class="sign">Bagel does the work, so you can go play frisbee with your dog.<small><svg class="" viewBox="0 0 32 32" width="22" height="22" aria-hidden="true"><g fill="#e8743b"><ellipse cx="16" cy="21" rx="8" ry="6.5"></ellipse><ellipse cx="7" cy="13" rx="3.4" ry="4.2" transform="rotate(-20 7 13)"></ellipse><ellipse cx="12.5" cy="7.5" rx="3.4" ry="4.4" transform="rotate(-8 12.5 7.5)"></ellipse><ellipse cx="19.5" cy="7.5" rx="3.4" ry="4.4" transform="rotate(8 19.5 7.5)"></ellipse><ellipse cx="25" cy="13" rx="3.4" ry="4.2" transform="rotate(20 25 13)"></ellipse></g></svg> GOOD BOY</small></div>
   </section>
 </main>
 <div class="counter"></div>

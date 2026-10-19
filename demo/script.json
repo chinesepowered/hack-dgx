@@ -70,11 +70,24 @@
     },
     {
       "id": "s10-outro",
-      "text": "Bagel runs on the Cline SDK, Qwen, Parallel and ElevenLabs. It's sample data today; with Composio, your real Gmail and Calendar are one swap away. Good boy.",
+      "text": "And unlike Muse or Instinct, Bagel is open source, runs on open-weights models, and lives on your own machine. Today that's Qwen 3.8 through the Cline SDK, but the model is your choice. It's sample data for now; Composio connects your real Gmail and Calendar.",
       "caption": [
-        "Every night, Bagel's on duty",
-        "Cline SDK · Qwen 3.8 on W&B · Parallel · ElevenLabs · Composio-ready"
+        "Open source · Open weights · Runs on your machine",
+        "Qwen 3.8 today through the Cline SDK, or any model you choose, even one running locally."
       ]
+    },
+    {
+      "id": "s11-backlog",
+      "text": "Next shift: your backlog. Overnight, Bagel hands your GitHub issues to Cline, right on your laptop, so a pull request is waiting by seven.",
+      "caption": [
+        "Next shift: your backlog",
+        "GitHub issues go to Cline on your machine overnight. A draft PR is waiting by 7 AM; you tap to merge."
+      ]
+    },
+    {
+      "id": "s12-frisbee",
+      "text": "Bagel does the work, so you can go play frisbee with your dog. Good boy!",
+      "caption": null
     }
   ]
 }

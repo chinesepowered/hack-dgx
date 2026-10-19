@@ -7,8 +7,10 @@ While you sleep, Bagel the beagle preps tomorrow. At 7:00 AM he drops <i>The Mor
 every promise you made, every reply you're owed, a brief for your first meeting, and the awkward calls, already lined up.<br>
 One tap each. Then at 9:00 he makes the calls.</p>
 
+<p align="center">Open source, open weights · Runs on your machine · Your choice of model</p>
+
 <!-- Demo video: swap this link for the YouTube URL once it's uploaded. -->
-<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the 2-minute demo</a></b> · <a href="slides.pdf">Slides</a> · <a href="PITCH.md">Pitch</a></p>
+<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the demo</a></b> · <a href="slides.pdf">Slides</a> · <a href="PITCH.md">Pitch</a></p>
 
 ---
 
@@ -23,6 +25,12 @@ One tap each. Then at 9:00 he makes the calls.</p>
 | Night shift | The Morning Bark | On the phone |
 | --- | --- | --- |
 | ![Night shift](docs/night-shift.png) | ![The Morning Bark](docs/morning-bark.png) | ![Call](docs/call.png) |
+
+### Next shift: your backlog
+
+Because Bagel runs on your machine, he can reach things a chat assistant can't, like your repos. Next up: overnight, Bagel hands the GitHub issues you've labeled to Cline (or `claude -p`) on your machine, each in its own branch. By 7 AM there's a draft PR with the tests run, as one more card in *The Morning Bark*. You still tap to merge. This isn't in the hackathon build yet.
+
+Bagel does the work, so you can go play frisbee with your dog.
 
 ## Architecture
 
@@ -81,6 +89,8 @@ npm run dev            # app on http://localhost:5173
 ```
 
 It starts in replay mode, which plays back a recorded run and needs no keys. To run the agents live, copy `.env.example` to `.env`, add the keys, and press **Live** in the side panel.
+
+Bagel uses Qwen 3.8, an open-weights model, on W&B Inference by default, but the model is your choice. Point `LLM_BASE_URL` and `LLM_MODEL` at any OpenAI-compatible endpoint whose model supports tool calls, and put its key in `LLM_API_KEY`. A model running locally with Ollama or vLLM works too; any non-empty key will do.
 
 ## Project layout
 

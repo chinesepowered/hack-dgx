@@ -9,7 +9,7 @@ export const config = {
   llm: {
     // Qwen 3.8 on W&B Inference (OpenAI-compatible). Any OpenAI-compatible endpoint works.
     baseUrl: process.env.LLM_BASE_URL ?? "https://api.inference.wandb.ai/v1",
-    apiKey: process.env.WANDB_API_KEY ?? process.env.LLM_API_KEY ?? "",
+    apiKey: process.env.LLM_API_KEY || process.env.WANDB_API_KEY || "",
     model: process.env.LLM_MODEL ?? "Qwen/Qwen3.8-27B",
   },
   parallelKey: process.env.PARALLEL_API_KEY ?? "",
@@ -30,7 +30,7 @@ export const config = {
 
 export function missingKeys(): string[] {
   const missing: string[] = []
-  if (!config.llm.apiKey) missing.push("WANDB_API_KEY")
+  if (!config.llm.apiKey) missing.push("WANDB_API_KEY or LLM_API_KEY")
   if (!config.parallelKey) missing.push("PARALLEL_API_KEY")
   if (!config.elevenKey) missing.push("ELEVENLABS_API_KEY")
   return missing

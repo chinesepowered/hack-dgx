@@ -1767,6 +1767,51 @@ button:disabled {
   font-size: 15px;
   padding: 6px 13px;
 }
+.video__end {
+  position: fixed;
+  inset: 0;
+  z-index: 50;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 70px;
+  padding: 0 120px;
+  background: radial-gradient(circle at 28% 55%, rgba(255, 209, 102, 0.45), transparent 36%), #fbf6ec;
+  color: #2b211b;
+  animation: endIn 0.7s ease-out;
+}
+.video__end-copy {
+  max-width: 980px;
+}
+.video__end h1 {
+  font-family: var(--serif);
+  font-size: 76px;
+  line-height: 1.04;
+  margin: 0 0 34px;
+  text-wrap: balance;
+}
+.video__end h1 em {
+  color: #e8743b;
+  font-style: italic;
+  font-weight: 600;
+}
+.video__end-open {
+  font-size: 29px;
+  font-weight: 800;
+  white-space: nowrap;
+  margin: 0 0 14px;
+}
+.video__end-stack {
+  font-size: 22px;
+  font-weight: 700;
+  color: #7a6a5c;
+  margin: 0;
+}
+@keyframes endIn {
+  from {
+    opacity: 0;
+  }
+}
 
 /* ---------- Small screens: the app fills the phone you're holding ---------------- */
 @media (max-width: 700px) {

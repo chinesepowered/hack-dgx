@@ -11,8 +11,8 @@ const outFile = resolve(root, process.argv[2] ?? "demo/bagel-demo.mp4")
 const tl = JSON.parse(readFileSync(resolve(work, "timeline.json"), "utf8"))
 const frames = [...tl.frames].sort((a, b) => a.ts - b.ts)
 const T0 = frames[0].ts
-// Hold the last frame briefly, but keep the cut within two minutes.
-const total = Math.min(frames.at(-1).ts - T0 + 0.6, Number(process.env.MAX_SECONDS ?? 119.9))
+// Hold the last frame briefly, but keep the cut within three minutes.
+const total = Math.min(frames.at(-1).ts - T0 + 0.6, Number(process.env.MAX_SECONDS ?? 179.9))
 
 // --- picture ------------------------------------------------------------------
 const list = []

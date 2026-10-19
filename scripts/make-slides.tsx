@@ -96,6 +96,7 @@ box-shadow:120px 120px #fff,340px 80px #ffe7a3,620px 200px #fff,880px 110px #cfd
 .rituals{display:flex;gap:14px}
 .rituals .chip{border:2.5px solid rgba(255,209,102,.55);color:var(--gold);background:rgba(255,209,102,.07);font-size:23px;padding:10px 20px}
 .rituals .chip b{color:#fff}
+.s-title .open{margin-top:30px;font:700 24px var(--ui);color:#c9cdf5;letter-spacing:.2px;white-space:nowrap}
 .s-title .foot{position:absolute;left:130px;bottom:58px;font:700 24px var(--ui);color:#a9add9;letter-spacing:.4px}
 .s-title .foot b{color:#fff}
 
@@ -165,17 +166,22 @@ box-shadow:0 3px 0 rgba(43,33,27,.07)}
 .s-why{background:radial-gradient(circle at 85% 70%,rgba(255,209,102,.35),transparent 32%),var(--paper)}
 .s-why .top{position:absolute;left:120px;top:96px;width:1150px}
 .s-why h2{margin-top:18px}
-.pillars{position:absolute;left:120px;top:400px;width:1150px;display:grid;grid-template-columns:repeat(3,1fr);gap:26px}
-.pillar{background:var(--card);border:2px solid var(--rule);border-radius:28px;padding:30px 30px 32px;box-shadow:0 3px 0 rgba(43,33,27,.07)}
-.pillar .ico{font-size:52px}
-.pillar h3{font:700 36px/1.1 var(--serif);margin:14px 0 12px}
-.pillar p{font:700 24px/1.42 var(--ui);color:#5e4f43;margin:0}
-.next{position:absolute;left:120px;top:800px;width:1150px}
-.next h4{margin:0 0 16px;font:800 22px var(--ui);letter-spacing:4px;text-transform:uppercase;color:var(--muted)}
-.next .row{display:flex;flex-wrap:wrap;gap:12px}
-.next .chip{background:#fff;border:2px dashed #c9b9a2;color:var(--ink);font-size:22px;padding:9px 18px}
-.s-why .dog{position:absolute;right:120px;top:210px}
-.s-why .sign{position:absolute;right:110px;bottom:120px;width:520px;text-align:center;font:700 44px/1.2 var(--serif);text-wrap:balance}
+.pillars{position:absolute;left:120px;top:372px;width:1150px;display:grid;grid-template-columns:1fr 1fr;gap:18px 20px}
+.pillar{display:grid;grid-template-columns:56px 1fr;gap:4px 18px;align-items:start;align-content:start;background:var(--card);border:2px solid var(--rule);border-radius:24px;padding:22px 26px;box-shadow:0 3px 0 rgba(43,33,27,.07)}
+.pillar .ico{grid-row:span 2;font-size:44px;line-height:1.1}
+.pillar h3{font:700 32px/1.1 var(--serif);margin:0 0 6px}
+.pillar p{font:700 21px/1.4 var(--ui);color:#5e4f43;margin:0}
+.next{position:absolute;left:120px;top:772px;width:1150px}
+.shift{display:grid;grid-template-columns:64px 1fr;gap:4px 18px;align-items:center;background:var(--ink);color:#fff;border-radius:24px;padding:20px 28px}
+.shift .ico{grid-row:span 2;font-size:48px}
+.shift b{font:700 30px var(--serif);color:var(--gold)}
+.shift b small{font:800 16px var(--ui);letter-spacing:3px;color:#ffb68a;margin-left:14px;vertical-align:5px}
+.shift span{font:700 21px/1.4 var(--ui);color:#e8e2d8}
+.shift code{font:700 19px ui-monospace,SFMono-Regular,Menlo,monospace;color:#fff}
+.next .row{display:flex;flex-wrap:wrap;gap:12px;margin-top:16px}
+.next .chip{background:#fff;border:2px dashed #c9b9a2;color:var(--ink);font-size:21px;padding:8px 16px}
+.s-why .dog{position:absolute;right:140px;top:190px}
+.s-why .sign{position:absolute;right:100px;top:640px;width:560px;text-align:center;font:700 40px/1.2 var(--serif);text-wrap:balance}
 .s-why .sign small{display:block;margin-top:14px;font:800 24px var(--ui);color:var(--brand);letter-spacing:1px}
 
 @media print{
@@ -202,6 +208,7 @@ const slides = [
         <span class="chip">🗞️ <b>7 AM</b> The Morning Bark</span>
         <span class="chip">📞 <b>9 AM</b> awkward calls</span>
       </div>
+      <div class="open">🔓 Open source, open weights · 💻 Runs on your machine · 🧠 Your choice of model</div>
     </div>
     <div class="foot">Built with <b>Cline SDK</b> · <b>Qwen 3.8</b> on W&amp;B Inference · <b>Parallel</b> · <b>ElevenLabs</b> · <b>Composio</b>-ready</div>
   </section>`,
@@ -254,7 +261,7 @@ const slides = [
     <div class="mid">
     <div class="flow">
       <div class="stage"><div class="when w1">2:00<small>AM</small></div>
-        <div class="box"><h4>Night-shift agent <span>Cline SDK · Qwen 3.8 on W&amp;B Inference</span></h4>
+        <div class="box"><h4>Night-shift agent <span>Cline SDK · Qwen 3.8 on W&amp;B, or any model you choose</span></h4>
           <div class="tools">
             <span class="tool"><i class="p-composio">Composio</i>GMAIL_FETCH_EMAILS</span>
             <span class="tool"><i class="p-composio">Composio</i>GOOGLECALENDAR_EVENTS_LIST</span>
@@ -285,7 +292,7 @@ const slides = [
     </div>
     <div class="trust">
       <span class="chip">✓ Draft-first: nothing sent without a tap</span>
-      <span class="chip">✓ Always says it's an AI</span>
+      <span class="chip">✓ Open source, runs on your machine</span>
       <span class="chip">✓ Composio tool shapes: one swap to real accounts</span>
       <small>Demo: sample inbox &amp; calendar · the phone's front desk is a simulated voice</small>
     </div>
@@ -295,18 +302,22 @@ const slides = [
   `<section class="slide s-why" data-title="Why every day">
     <div class="top"><div class="kicker">Why you'd use it every day</div><h2>It shows up. It does the work. <em>It asks first.</em></h2></div>
     <div class="pillars">
-      <div class="pillar"><div class="ico">🔁</div><h3>A ritual, not a prompt</h3><p>2 AM, 7 AM, 9 AM. Bagel comes to you; there's nothing to remember to ask.</p></div>
-      <div class="pillar"><div class="ico">🦴</div><h3>Work done, not summarized</h3><p>Drafts with attachments, cited briefs, appointments actually moved.</p></div>
-      <div class="pillar"><div class="ico">🛡️</div><h3>Safe by default</h3><p>One tap to send, AI disclosure on every call, read-only wherever possible.</p></div>
+      <div class="pillar"><div class="ico">🔁</div><h3>A ritual, not a prompt</h3><p>2 AM, 7 AM, 9 AM. Bagel comes to you, so there's nothing to remember to ask.</p></div>
+      <div class="pillar"><div class="ico">🦴</div><h3>Done, not summarized</h3><p>Drafts with attachments, cited briefs, appointments actually moved.</p></div>
+      <div class="pillar"><div class="ico">🛡️</div><h3>Safe by default</h3><p>One tap to send, AI disclosure on every call, read-only overnight.</p></div>
+      <div class="pillar"><div class="ico">🔓</div><h3>Yours, not theirs</h3><p>Open source, runs on open-weights models (Qwen 3.8 today), lives on your machine. Swap in any model, even one you run locally. Muse and Instinct are closed.</p></div>
     </div>
-    <div class="next"><h4>Next</h4><div class="row">
-      <span class="chip">📞 Real phone lines (Twilio / ElevenLabs)</span>
-      <span class="chip">🔌 Connect Gmail &amp; Calendar via Composio</span>
-      <span class="chip">💬 The Morning Bark in Telegram (Cline connectors)</span>
-      <span class="chip">✍️ Learns your voice from your edits</span>
-    </div></div>
-    <div class="dog">${svg(<Bagel pose="proud" size={430} />)}</div>
-    <div class="sign">Every night, Bagel's on duty.<small>${paw("#e8743b", 22)} GOOD BOY</small></div>
+    <div class="next">
+      <div class="shift"><span class="ico">🛠️</span><b>Your backlog<small>NEXT SHIFT</small></b>
+        <span>Overnight, Bagel hands the GitHub issues you've labeled to Cline (or <code>claude -p</code>) on your machine, each in its own branch. By 7 AM there's a draft PR with the tests run. You still tap to merge.</span></div>
+      <div class="row">
+        <span class="chip">📞 Real phone lines</span>
+        <span class="chip">🔌 Real Gmail &amp; Calendar via Composio</span>
+        <span class="chip">💬 The Morning Bark in Telegram</span>
+      </div>
+    </div>
+    <div class="dog">${svg(<Bagel pose="proud" frisbee size={400} />)}</div>
+    <div class="sign">Bagel does the work, so you can go play frisbee with your dog.<small>${paw("#e8743b", 22)} GOOD BOY</small></div>
   </section>`,
 ]
 

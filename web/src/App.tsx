@@ -14,6 +14,7 @@ export function App() {
   const now = useDemoNow(offset)
   const [dismissed, setDismissed] = useState<string[]>([])
   const caption = useCaption()
+  const endcard = useEndcard()
 
   if (!state) {
     return (
@@ -64,6 +65,18 @@ export function App() {
           <UnderTheHood state={state} now={now} big />
           <Stack />
         </div>
+        {endcard && (
+          <div className="video__end">
+            <Bagel pose="proud" frisbee size={400} />
+            <div className="video__end-copy">
+              <h1>
+                Bagel does the work, <em>so you can go play frisbee with your dog.</em>
+              </h1>
+              <p className="video__end-open">🔓 Open source, open weights · 💻 Runs on your machine · 🧠 Your choice of model</p>
+              <p className="video__end-stack">Cline SDK · Qwen 3.8 on W&amp;B Inference · Parallel · ElevenLabs · Composio-ready</p>
+            </div>
+          </div>
+        )}
       </div>
     )
   }
@@ -84,4 +97,13 @@ function useCaption() {
       setCaption(title ? { title, body } : null)
   }, [])
   return caption
+}
+
+/** The closing card for the demo video, shown by the recording script via window.__endcard(). */
+function useEndcard() {
+  const [on, setOn] = useState(false)
+  useEffect(() => {
+    ;(window as unknown as { __endcard: (on: boolean) => void }).__endcard = setOn
+  }, [])
+  return on
 }
