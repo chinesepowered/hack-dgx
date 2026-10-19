@@ -114,13 +114,13 @@ export class Engine {
       if (target > this.clock.now()) this.clock.set(target)
       const active = { ...step, status: "active" as const, at: this.clock.now() }
       this.store.update((s) => s.trail.push(active))
-      await sleep(step.kind === "research" ? 3600 : step.kind === "start" ? 900 : 650)
+      await sleep(step.kind === "research" ? 3000 : step.kind === "start" ? 800 : 560)
       this.store.update((s) => {
         const t = s.trail.find((x) => x.id === id)!
         t.status = "done"
         t.at = this.clock.now()
       })
-      await sleep(260)
+      await sleep(220)
     }
     const paper = structuredClone(snap.nightShift.paper)
     this.store.update((s) => {
@@ -196,7 +196,9 @@ export class Engine {
     // Leave a few seconds between calls so the last outcome can be read.
     const next = this.callQueue.then(async () => {
       await this.doCall(callId, realtime)
-      if (realtime) await sleep(7000)
+      if (!realtime) return
+      const until = this.clock.now() + 7000
+      while (this.clock.now() < until) await sleep(100)
     })
     this.callQueue = next.catch(() => {})
     return next
@@ -218,7 +220,7 @@ export class Engine {
       let audioUrl: string
       let durationSec: number
       if (recorded) {
-        await sleep(1200)
+        await sleep(900)
         ;({ transcript, outcome, durationSec } = recorded)
         audioUrl = `/media/demo/audio/${recorded.audio}`
       } else {

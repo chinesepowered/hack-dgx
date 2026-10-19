@@ -19,7 +19,8 @@ let deliveredKey = ""
 export function MorningBark({ state }: { state: AppState }) {
   const paper = state.paper!
   const key = `${paper.date}|${state.mode}|${state.nightShift.finishedAt}`
-  const [delivering, setDelivering] = useState(deliveredKey !== key)
+  const [alreadyDelivered] = useState(deliveredKey === key)
+  const [delivering, setDelivering] = useState(!alreadyDelivered)
   const [editing, setEditing] = useState<PromiseItem | null>(null)
   const [composio, setComposio] = useState(false)
   useEffect(() => {
@@ -48,7 +49,7 @@ export function MorningBark({ state }: { state: AppState }) {
   return (
     <div className="morning">
       {delivering && <Delivery />}
-      <div className={`paper ${delivering ? "paper--hidden" : deliveredKey === key ? "" : "paper--in"}`}>
+      <div className={`paper ${delivering ? "paper--hidden" : alreadyDelivered ? "" : "paper--in"}`}>
         <header className="masthead">
           <div className="masthead__ears">
             <span>Sniffed overnight by Bagel</span>

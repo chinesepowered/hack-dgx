@@ -7,6 +7,8 @@ While you sleep, Bagel the beagle preps tomorrow. At 7:00 AM he drops <i>The Mor
 every promise you made, every reply you're owed, a brief for your first meeting, and the awkward calls, already lined up.<br>
 One tap each. Then at 9:00 he makes the calls.</p>
 
+<p align="center"><b>▶ <a href="demo/bagel-demo.mp4">Watch the 2-minute demo</a></b> (1080p, narrated)</p>
+
 ---
 
 ## The daily loop
@@ -80,6 +82,17 @@ npm run record -- --keep=biz_gym    # re-record, but keep an existing call recor
 
 Each call is rehearsed as text first and only voiced once it passes checks (goal met, AI disclosure, no gendered language, length), so ElevenLabs credits aren't spent on bad takes. Voiced lines are cached in `data/runtime/tts`.
 
+## Remaking the demo video
+
+```bash
+npm run dev                 # keep running in another terminal
+npm run video:narrate       # voices demo/script.json with ElevenLabs (cached per line in demo/narration)
+npm run video:record        # drives the app in replay mode at 1920x1080 and captures frames + timings
+npm run video               # mixes narration + call audio, writes demo/bagel-demo.mp4
+```
+
+The recorder clicks through the real app (replay mode), fast-forwards inside the dentist call, and logs exactly which stretch of call audio is on screen, so the soundtrack stays in sync with the transcript.
+
 ## Layout
 
 ```
@@ -92,6 +105,8 @@ server/
   engine.ts               demo clock, approvals, call queue, record/replay
   index.ts                API + live updates (SSE)
 web/src/                  the phone app: Bagel (SVG), night trail, The Morning Bark, call screen
-scripts/                  record-snapshot, try-nightshift, try-calls, flow (end-to-end screenshots)
+scripts/                  record-snapshot, try-nightshift, try-calls, flow (end-to-end screenshots),
+                          narrate / record-video / make-video (the demo video)
 data/demo/                the recorded run used by replay mode (+ call audio)
+demo/                     the demo video, its narration script and voiced lines
 ```

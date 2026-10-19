@@ -1,0 +1,42 @@
+{
+  "s01-intro": {
+    "hash": "ee234229c7c4",
+    "duration": 5.616327
+  },
+  "s02-night": {
+    "hash": "264bd4b05ff4",
+    "duration": 17.371429
+  },
+  "s03-paper": {
+    "hash": "495fc3ae09c9",
+    "duration": 10.631837
+  },
+  "s04-brief": {
+    "hash": "431aa6520fc4",
+    "duration": 7.967347
+  },
+  "s05-approve": {
+    "hash": "d3abdb781963",
+    "duration": 9.430204
+  },
+  "s06-calls": {
+    "hash": "f6a9d39e6064",
+    "duration": 3.578776
+  },
+  "s07-fee": {
+    "hash": "61cc1353c5be",
+    "duration": 4.675918
+  },
+  "s08-moved": {
+    "hash": "c8e2c92022b6",
+    "duration": 3.94449
+  },
+  "s09-gym": {
+    "hash": "03e69e843319",
+    "duration": 6.034286
+  },
+  "s10-outro": {
+    "hash": "2d6c00178e24",
+    "duration": 12.382041
+  }
+}

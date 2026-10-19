@@ -15,6 +15,8 @@
     "start": "npm run build && tsx server/index.ts",
     "typecheck": "tsc -p tsconfig.json && tsc -p web/tsconfig.json",
     "record": "tsx scripts/record-snapshot.ts",
+    "video:narrate": "tsx scripts/narrate.ts",
+    "video:record": "node scripts/record-video.mjs",
     "video": "node scripts/make-video.mjs"
   },
   "dependencies": {

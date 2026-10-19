@@ -1,0 +1,80 @@
+{
+  "voice": "cgSgspJ2msm6clMCkdW9",
+  "model": "eleven_multilingual_v2",
+  "segments": [
+    {
+      "id": "s01-intro",
+      "text": "Meet Bagel — a beagle who works the night shift, so tomorrow is handled before you wake up.",
+      "caption": [
+        "Bagel works the night shift",
+        "A personal agent that preps tomorrow while you sleep."
+      ]
+    },
+    {
+      "id": "s02-night",
+      "text": "At two a.m., he clocks in: a Cline SDK agent running Qwen 3.8. He sniffs through your inbox and tomorrow's calendar, tracks every promise in both directions, researches your first meeting with Parallel, and lines up the calls you've been dodging.",
+      "caption": [
+        "2:00 AM · The night shift",
+        "A Cline SDK agent on Qwen 3.8 (W&B Inference) reads your inbox and calendar, tracks promises, and researches with Parallel."
+      ]
+    },
+    {
+      "id": "s03-paper",
+      "text": "At seven, The Morning Bark lands. The deck you promised Maya? Drafted, with the file already attached. Send.",
+      "caption": [
+        "7:00 AM · The Morning Bark",
+        "Every promise, drafted. Nothing goes out without your tap."
+      ]
+    },
+    {
+      "id": "s04-brief",
+      "text": "Your ten-thirty coffee comes with a brief: the news, the people, and what to ask, all sourced by Parallel.",
+      "caption": [
+        "A brief for every first meeting",
+        "Researched overnight with Parallel, with sources."
+      ]
+    },
+    {
+      "id": "s05-approve",
+      "text": "Your dentist clashes with the investor update, and the gym renews Friday. Bagel can call both. Approve, and approve.",
+      "caption": [
+        "The awkward stuff, lined up",
+        "A double-booked dentist. A gym you never use. Bagel can call."
+      ]
+    },
+    {
+      "id": "s06-calls",
+      "text": "At nine, when they open, Bagel makes the calls.",
+      "caption": [
+        "9:00 AM · Bagel makes the calls",
+        "He checks your calendar mid-call and always says he's an AI. (In this demo, the front desk is a simulated voice.)"
+      ]
+    },
+    {
+      "id": "s07-fee",
+      "text": "There's a fifty-dollar late fee. Bagel politely asks to waive it.",
+      "caption": null
+    },
+    {
+      "id": "s08-moved",
+      "text": "Moved to Thursday. Fee waived. Calendar updated.",
+      "caption": null
+    },
+    {
+      "id": "s09-gym",
+      "text": "Then the gym: two retention offers, politely declined. Cancelled, no fees.",
+      "caption": [
+        "Cancelled. No fees.",
+        "Two retention offers, politely declined."
+      ]
+    },
+    {
+      "id": "s10-outro",
+      "text": "Bagel runs on the Cline SDK, Qwen, Parallel and ElevenLabs. It's sample data today; with Composio, your real Gmail and Calendar are one swap away. Good boy.",
+      "caption": [
+        "Every night, Bagel's on duty",
+        "Cline SDK · Qwen 3.8 on W&B · Parallel · ElevenLabs · Composio-ready"
+      ]
+    }
+  ]
+}
